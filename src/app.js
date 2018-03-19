@@ -22,9 +22,9 @@ const App = () => (
 // });
 
 
-store.dispatch(addExpense({ description: 'Water Bill', amount:4500 }));
-store.dispatch(addExpense({ description: 'Rent',createdAt:20000 }));
-store.dispatch(addExpense({ description: 'Gas Bill',amount:300 }));
+// store.dispatch(addExpense({ description: 'Water Bill', amount:4500 }));
+// store.dispatch(addExpense({ description: 'Rent',createdAt:20000 }));
+// store.dispatch(addExpense({ description: 'Gas Bill',amount:300 }));
 
 // store.dispatch(setTextFilter('water'));
 
