@@ -1,0 +1,41 @@
+{
+  "name": "expensify",
+  "version": "1.0.0",
+  "description": "Expensify-App",
+  "main": "index.js",
+  "author": "Sohaib Raza",
+  "license": "MIT",
+  "scripts": {
+    "start": "webpack-dev-server",
+    "test": "jest --config=jest.config.json",
+    "webpack": "webpack"
+  },
+  "dependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-react": "^6.24.1",
+    "css-loader": "^0.28.7",
+    "moment": "^2.21.0",
+    "node-sass": "^4.7.2",
+    "normalize.css": "^7.0.0",
+    "react": "^16.2.0",
+    "react-dates": "^16.3.6",
+    "react-dom": "^16.2.0",
+    "react-modal": "^3.1.10",
+    "react-redux": "^5.0.7",
+    "react-router-dom": "^4.2.2",
+    "redux": "^3.7.2",
+    "redux-thunk": "^2.2.0",
+    "sass-loader": "^6.0.6",
+    "style-loader": "^0.19.1",
+    "webpack": "^3.10.0",
+    "webpack-dev-server": "^2.9.7"
+  },
+  "devDependencies": {
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "jest": "^22.4.2"
+  }
+}
