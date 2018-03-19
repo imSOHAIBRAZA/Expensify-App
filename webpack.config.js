@@ -1,6 +1,6 @@
 const path = require('path');
 
-module.export=(env)=>{
+module.exports=(env)=>{
     const isProduction=env==='production';
 
     return {
