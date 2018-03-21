@@ -13,10 +13,9 @@ exports[`shound render Expense List Item  1`] = `
     </h3>
   </Link>
   <p>
-    195
+    $1.95
     -
-    0
-     
+    January 1st, 1970
   </p>
 </div>
 `;
