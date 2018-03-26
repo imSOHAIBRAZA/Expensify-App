@@ -40,6 +40,7 @@ export class ExpenseListFilters extends React.Component {
                     <option value='date'> Date</option>
                     <option value='amount'> Amount</option>
                 </select>
+                
                 {/* {console.log(this.props.setTextFilter)} */}
                 <DateRangePicker
                     startDate={this.props.filters.startDate} 
@@ -60,6 +61,7 @@ export class ExpenseListFilters extends React.Component {
 
 const mapStateToProps = (state) => ({
     filters: state.filters
+    
 });
 
 const mapDispatchToProps=(dispatch)=>({
