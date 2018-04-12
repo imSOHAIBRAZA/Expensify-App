@@ -3,8 +3,8 @@ import ReactDOM from 'react-dom';
 import AppRouter from './routers/AppRouter';
 import store from './store';
 import { Provider } from 'react-redux';
-import { addExpense } from './store/actions/expenses';
-import {setTextFilter} from './store/actions/filters';
+import { startSetExpenses } from './store/actions/expenses';
+import { setTextFilter } from './store/actions/filters';
 import getVisiableExpenses from './store/selectors/expenses';
 import 'normalize.css/normalize.css';
 import './styles/style.scss';
@@ -34,6 +34,9 @@ const App = () => (
 // const visiableExpenses = getVisiableExpenses(state.expenses,state.filters)
 // console.log(visiableExpenses);
 
+ReactDOM.render(<p> Loading... </p>, document.getElementById('app'));
 
+store.dispatch(startSetExpenses()).then(() => {
+    ReactDOM.render(<App />, document.getElementById('app'));
+});
 
-ReactDOM.render(<App />, document.getElementById('app'));
