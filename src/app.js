@@ -1,15 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import AppRouter from './routers/AppRouter';
+import 'normalize.css/normalize.css';
+import 'react-dates/lib/css/_datepicker.css';
+import AppRouter, { history } from './routers/AppRouter';
 import store from './store';
 import { Provider } from 'react-redux';
 import { startSetExpenses } from './store/actions/expenses';
 import { setTextFilter } from './store/actions/filters';
+import { login, logout } from './store/actions/auth';
 import getVisiableExpenses from './store/selectors/expenses';
-import 'normalize.css/normalize.css';
 import './styles/style.scss';
-import 'react-dates/lib/css/_datepicker.css';
-import './firebase/firebase';
+import { firebase } from './firebase/firebase';
 // import './playground/promises';
 
 const App = () => (
@@ -17,6 +18,14 @@ const App = () => (
         <AppRouter />
     </Provider>
 );
+
+let hasRender = false;
+const renderApp = () => {
+    if (!hasRender) {
+        ReactDOM.render(<App />, document.getElementById('app'));
+        hasRender = true;
+    }
+};
 
 
 // store.subscribe(() => {
@@ -36,7 +45,24 @@ const App = () => (
 
 ReactDOM.render(<p> Loading... </p>, document.getElementById('app'));
 
-store.dispatch(startSetExpenses()).then(() => {
-    ReactDOM.render(<App />, document.getElementById('app'));
-});
 
+
+// **** User Login Authantication **** //
+firebase.auth().onAuthStateChanged((user) => {
+    if (user) {
+        // **** Show Expenses when user Login**** //
+        store.dispatch(login(user.uid));
+        store.dispatch(startSetExpenses()).then(() => {
+            renderApp();
+            if (history.location.pathname === '/') {
+                history.push('/dashbord');
+            }
+        });
+    }
+    else {
+        // **** Logout Redirect **** //
+        store.dispatch(logout());
+        renderApp();
+        history.push('/');
+    }
+});
