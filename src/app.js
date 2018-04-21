@@ -11,6 +11,7 @@ import { login, logout } from './store/actions/auth';
 import getVisiableExpenses from './store/selectors/expenses';
 import './styles/style.scss';
 import { firebase } from './firebase/firebase';
+import LodingPage from './components/LodingPage';
 // import './playground/promises';
 
 const App = () => (
@@ -43,7 +44,7 @@ const renderApp = () => {
 // const visiableExpenses = getVisiableExpenses(state.expenses,state.filters)
 // console.log(visiableExpenses);
 
-ReactDOM.render(<p> Loading... </p>, document.getElementById('app'));
+ReactDOM.render(<LodingPage/>, document.getElementById('app'));
 
 
 
